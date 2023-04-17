@@ -46,7 +46,14 @@ const RegisterModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome to Animal-Pals" subtitle="Create an Account" />
-      <Input />
+      <Input
+        id="email"
+        label="Email"
+        disabled={loading}
+        register={register}
+        errors={errors}
+        required
+      />
     </div>
   );
 
