@@ -4,11 +4,13 @@ import NavBar from "@/components/navbar/NavBar";
 import Client from "@/components/Client";
 import Modal from "@/components/modals/Modal";
 import RegisterModal from "@/components/modals/RegisterModal";
+import Notification from "@/components/toasts/Notification";
 
 export default function App() {
   return (
     <>
       <Client>
+        <Notification />
         <RegisterModal />
         <NavBar />
       </Client>

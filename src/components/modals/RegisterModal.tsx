@@ -5,6 +5,7 @@ import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useState, useCallback } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 import useRegister from "../hooks/useRegister";
 import Modal from "./Modal";
@@ -29,13 +30,14 @@ const RegisterModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setLoading(true);
+
     axios
       .post("/api/register", data)
       .then(() => {
         registerModal.onClose();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Error, could not continue.");
       })
       .finally(() => {
         setLoading(false);
