@@ -85,6 +85,12 @@ const RegisterModal = () => {
         icon={FcGoogle}
         onClick={() => {}}
       />
+      <Button
+        outline
+        label="Continue with Facebook"
+        icon={AiFillFacebook}
+        onClick={() => {}}
+      />
     </div>
   );
 
