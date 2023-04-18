@@ -29,11 +29,11 @@ const UserMenu = () => {
       </div>
 
       {openStatus && (
-        <div className="absolute rounded-xl shadow-md w-2/3 overflow-hidden right-4 top-14 text-sm">
+        <div className="absolute rounded-xl shadow-md w-3/4 overflow-hidden right-4 top-14 text-sm">
           <div className="flex flex-col cursor-pointer">
             <>
               <MenuItem onClick={() => {}} label="Login" />
-              <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
+              <MenuItem onClick={registerModal.onOpen} label="Sign-Up" />
             </>
           </div>
         </div>

@@ -29,7 +29,6 @@ const RegisterModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setLoading(true);
-
     axios
       .post("/api/register", data)
       .then(() => {
@@ -49,6 +48,23 @@ const RegisterModal = () => {
       <Input
         id="email"
         label="Email"
+        disabled={loading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="name"
+        label="Name"
+        disabled={loading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="password"
+        label="Password"
+        type="password"
         disabled={loading}
         register={register}
         errors={errors}
