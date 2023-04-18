@@ -91,6 +91,15 @@ const RegisterModal = () => {
         icon={AiFillFacebook}
         onClick={() => {}}
       />
+      <div className="text-neutral-600 flex-row flex gap-3">
+        <div>Already Have an account?</div>
+        <div
+          onClick={registerModal.onClose}
+          className="cursor-pointer hover:underline hover:text-neutral-400"
+        >
+          Log in
+        </div>
+      </div>
     </div>
   );
 
