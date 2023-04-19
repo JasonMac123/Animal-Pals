@@ -7,7 +7,7 @@ import { useState, useCallback } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
-import useRegister from "../hooks/useModal";
+import useRegister from "../hooks/useRegister";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
@@ -33,7 +33,7 @@ const RegisterModal = () => {
     setLoading(true);
 
     axios
-      .post("/api/register/create", data)
+      .post("/api/registerz", data)
       .then(() => {
         registerModal.onClose();
       })
