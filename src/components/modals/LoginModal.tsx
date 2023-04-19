@@ -6,14 +6,17 @@ import { FcGoogle } from "react-icons/fc";
 import { useState, useCallback } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
 
 import useLogin from "../hooks/userLogin";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 const LoginModal = () => {
+  const router = useRouter();
   const loginModal = useLogin();
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +26,6 @@ const LoginModal = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -32,17 +34,21 @@ const LoginModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setLoading(true);
 
-    axios
-      .post("/api/register/create", data)
-      .then(() => {
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      setLoading(false);
+
+      if (callback?.ok) {
+        router.refresh();
         loginModal.onClose();
-      })
-      .catch((error) => {
-        toast.error("Error, could not continue.");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   const bodyContent = (
