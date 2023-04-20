@@ -6,7 +6,7 @@ import Client from "./components/Client";
 import Notification from "./components/toasts/Notification";
 
 export const metadata = {
-  title: "Animal-pals",
+  title: "Airbnb",
   description: "A place where animals can find their vacation homes",
 };
 
