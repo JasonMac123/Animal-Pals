@@ -38,7 +38,7 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        toast.error("Error, could not register. Try Again.");
+        toast.error("Error, could not continue.");
       })
       .finally(() => {
         setLoading(false);
