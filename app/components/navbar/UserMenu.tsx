@@ -1,5 +1,4 @@
 "use client";
-import { User } from "@prisma/client";
 
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
@@ -8,11 +7,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import useRegister from "../hooks/useRegister";
 import useLogin from "../hooks/useLogin";
 
-interface UserMenuProps {
-  currentUser?: User | null;
-}
-
-const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+const UserMenu = () => {
   const registerModal = useRegister();
   const loginModal = useLogin();
   const [openStatus, setOpenStatus] = useState(false);
@@ -38,18 +33,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       {openStatus && (
         <div className="absolute rounded-xl shadow-md w-3/4 overflow-hidden right-4 top-14 text-sm">
           <div className="flex flex-col cursor-pointer">
-            {currentUser ? (
-              <>
-                <MenuItem onClick={() => {}} label="My reservations" />
-                <MenuItem onClick={() => {}} label="Past trips" />
-                <MenuItem onClick={() => {}} label="LogOut" />
-              </>
-            ) : (
-              <>
-                <MenuItem onClick={loginModal.onOpen} label="Login" />
-                <MenuItem onClick={registerModal.onOpen} label="Sign-Up" />
-              </>
-            )}
+            <>
+              <MenuItem onClick={loginModal.onOpen} label="Login" />
+              <MenuItem onClick={registerModal.onOpen} label="Sign-Up" />
+            </>
           </div>
         </div>
       )}
