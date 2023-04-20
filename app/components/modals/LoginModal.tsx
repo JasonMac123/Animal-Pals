@@ -96,7 +96,7 @@ const LoginModal = () => {
           onClick={loginModal.onClose}
           className="cursor-pointer hover:underline hover:text-neutral-400"
         >
-          Log in
+          Log-in
         </div>
       </div>
     </div>
