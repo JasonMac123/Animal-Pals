@@ -1,7 +1,7 @@
 import Client from "./components/Client";
 
 const Home = () => {
-  return <Client></Client>;
+  return <div></div>;
 };
 
 export default Home;
