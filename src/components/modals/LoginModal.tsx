@@ -39,7 +39,6 @@ const LoginModal = () => {
       redirect: false,
     }).then((callback) => {
       setLoading(false);
-      console.log(callback);
 
       if (callback?.ok) {
         router.refresh();
