@@ -10,7 +10,6 @@ interface NavbarProps {
 }
 
 const NavBar: React.FC<NavbarProps> = ({ currentUser }) => {
-  console.log(currentUser);
   return (
     <div className="fixed w-full h-32 bg-yellow-400 z-10 shadow-md">
       <div>
