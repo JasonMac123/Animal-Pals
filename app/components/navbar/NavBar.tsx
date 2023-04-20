@@ -17,7 +17,7 @@ const NavBar: React.FC<NavbarProps> = ({ currentUser }) => {
           <div className="flex items-center justify-between my-auto">
             <Logo />
             <Search />
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </div>
         </Container>
       </div>
