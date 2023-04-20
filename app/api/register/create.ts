@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import prisma from "@/prisma/prismadb";
+import prisma from "../../prisma/prismadb";
 
 export default async function handler(req: Request, res: Response) {
   const { email, name, password } = req.body;
