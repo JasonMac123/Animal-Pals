@@ -1,6 +1,7 @@
 "use client";
 
 import { IconType } from "react-icons";
+import { AiFillFacebook } from "react-icons/ai";
 
 interface ButtonProps {
   label: string;
@@ -28,7 +29,9 @@ const Button: React.FC<ButtonProps> = ({
       ${outline ? "text-black" : "text-white"}
       `}
     >
-      {Icon && <Icon size={24} className="absolute left-3 top-3" />}
+      {Icon && (
+        <Icon size={24} className={`absolute left-3 top-3 text-blue-500`} />
+      )}
       {label}
     </button>
   );
