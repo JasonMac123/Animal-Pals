@@ -8,7 +8,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
 
-import useLogin from "../hooks/userLogin";
+import useLogin from "../hooks/useLogin";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
@@ -96,7 +96,7 @@ const LoginModal = () => {
           onClick={loginModal.onClose}
           className="cursor-pointer hover:underline hover:text-neutral-400"
         >
-          Log in
+          Log-in
         </div>
       </div>
     </div>

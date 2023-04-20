@@ -33,12 +33,12 @@ const RegisterModal = () => {
     setLoading(true);
 
     axios
-      .post("/api/registerz", data)
+      .post("/api/register", data)
       .then(() => {
         registerModal.onClose();
       })
       .catch((error) => {
-        toast.error("Error, could not continue.");
+        toast.error("Error, could not register. Try Again.");
       })
       .finally(() => {
         setLoading(false);

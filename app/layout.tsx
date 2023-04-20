@@ -10,15 +10,11 @@ export const metadata = {
   description: "A place where animals can find their vacation homes",
 };
 
-import getCurrentUser from "./actions/getCurrentUser";
-
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const currentUser = await getCurrentUser();
-
   return (
     <html lang="en">
       <body>
@@ -26,7 +22,7 @@ export default async function RootLayout({
           <Notification />
           <LoginModal />
           <RegisterModal />
-          <NavBar currentUser={currentUser} />
+          <NavBar />
         </Client>
       </body>
     </html>

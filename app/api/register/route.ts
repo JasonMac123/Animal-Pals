@@ -1,8 +1,10 @@
 import bcrypt from "bcrypt";
 import prisma from "../../prisma/prismadb";
+import { NextResponse } from "next/server";
 
-export default async function handler(req: Request, res: Response) {
-  const { email, name, password } = req.body;
+export async function POST(req: Request) {
+  const body = await req.json();
+  const { email, name, password } = body;
 
   const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -14,5 +16,5 @@ export default async function handler(req: Request, res: Response) {
     },
   });
 
-  res.status(200).json({ data: user });
+  return NextResponse.json(user);
 }

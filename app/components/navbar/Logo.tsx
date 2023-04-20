@@ -8,8 +8,8 @@ const Logo = () => {
     <Image
       alt="Logo"
       className="block cursor-pointer object-scale-down mt-3"
-      height="100"
-      width="100"
+      height="90"
+      width="90"
       src="/images/PetStay.png"
     ></Image>
   );
