@@ -5,6 +5,8 @@ import LoginModal from "./components/modals/LoginModal";
 import Client from "./components/Client";
 import Notification from "./components/toasts/Notification";
 
+import getCurrentUser from "./actions/getCurrentUser";
+
 export const metadata = {
   title: "Airbnb",
   description: "A place where animals can find their vacation homes",
@@ -15,6 +17,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body>
@@ -22,7 +26,7 @@ export default async function RootLayout({
           <Notification />
           <LoginModal />
           <RegisterModal />
-          <NavBar />
+          <NavBar currentUser={currentUser} />
         </Client>
       </body>
     </html>
