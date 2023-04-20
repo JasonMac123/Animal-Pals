@@ -22,13 +22,13 @@ const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:opacity-80 transition w-full py-3 font-semibold border-2
+      className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:opacity-80 transition w-full py-4 font-semibold border-2
       ${outline ? "bg-white" : "bg-yellow-400"} 
       ${outline ? "border-black" : "border-yellow-400"}
       ${outline ? "text-black" : "text-white"}
       `}
     >
-      {Icon && <Icon size={24} className="absolute left-4 top-3" />}
+      {Icon && <Icon size={24} className="absolute left-3 top-3" />}
       {label}
     </button>
   );
