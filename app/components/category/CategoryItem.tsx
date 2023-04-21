@@ -46,8 +46,8 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
   return (
     <div
       onClick={handleClick}
-      className={`flex flex-col items-center gap-2 hover:text-neutral-700 transition cursor-pointer 
-      ${selected ? "bg-neutral-600 text-white" : ""} `}
+      className={`flex flex-col items-center gap-2 hover:text-neutral-700 transition cursor-pointer w-9/12 py-4 rounded-xl bg-
+      ${selected ? "bg-black text-white" : ""} `}
     >
       <Icon size={26} />
       {label}
