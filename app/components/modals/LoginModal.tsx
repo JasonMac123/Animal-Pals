@@ -82,13 +82,7 @@ const LoginModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
-      />
-      <Button
-        outline
-        label="Continue with Facebook"
-        icon={AiFillFacebook}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <div className="text-neutral-600 flex-row flex gap-3">
         <div>Already Have an account?</div>
