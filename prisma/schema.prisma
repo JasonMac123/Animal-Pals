@@ -14,12 +14,10 @@ model User {
   id             String        @id @default(auto()) @map("_id") @db.ObjectId
   name           String?
   email          String?       @unique
-  emailVerified  DateTime?
   image          String?
   hashedPassword String?
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
-  favoriteID     String[]      @db.ObjectId
   Account        Account[]
   Post           Post[]
   Reservation    Reservation[]
@@ -33,7 +31,7 @@ model Account {
   providerAccountId String
   refresh_token     String? @db.String
   access_token      String? @db.String
-  expiires_at       Int?
+  expires_at       Int?
   token_type        String?
   scope             String?
   id_token          String? @db.String
