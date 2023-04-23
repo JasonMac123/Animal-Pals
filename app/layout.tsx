@@ -32,6 +32,9 @@ export default async function RootLayout({
         <Client>
           <CategoryBar />
         </Client>
+        <div className="">
+          
+        </div>
       </body>
     </html>
   );
