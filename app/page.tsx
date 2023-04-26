@@ -1,10 +1,11 @@
+import getListings from "./actions/getListings";
 import Client from "./components/Client";
 import NoListings from "./components/NoListings";
 
-const Home = () => {
-  const empty = true;
+const Home = async () => {
+  const listings = await getListings();
 
-  if (empty) {
+  if (listings.length === 0) {
     return (
       <Client>
         <NoListings />
