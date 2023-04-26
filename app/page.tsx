@@ -1,19 +1,30 @@
-import getListings from "./actions/getListings";
+import getPosts from "./actions/getPosts";
 import Client from "./components/Client";
-import NoListings from "./components/NoListings";
+import NoPosts from "./components/NoPosts";
+import PostCard from "./components/Posts/PostCard";
 
 const Home = async () => {
-  const listings = await getListings();
+  const posts = await getPosts();
 
-  if (listings.length === 0) {
+  if (posts.length === 0) {
     return (
       <Client>
-        <NoListings />
+        <NoPosts/>
       </Client>
     );
   }
 
-  return <div></div>;
+  return (
+    <Client>
+      {posts.map((post: any) => {
+        return (
+          <div>
+            <PostCard post={post} />
+          </div>
+        );
+      })}
+    </Client>
+  );
 };
 
 export default Home;

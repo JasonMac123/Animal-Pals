@@ -4,7 +4,7 @@ import Heading from "./Heading";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
 
-const NoListings = () => {
+const NoPosts = () => {
   const router = useRouter();
 
   return (
@@ -20,4 +20,4 @@ const NoListings = () => {
   );
 };
 
-export default NoListings;
+export default NoPosts;
