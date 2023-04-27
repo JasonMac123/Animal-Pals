@@ -52,7 +52,14 @@ const PostCard: React.FC<PostCardProps> = ({
     return `${format(start, "PP")} - ${format(end, "PP")}`;
   }, [reservation]);
 
-  return <div>ListingCard</div>;
+  return (
+    <div
+      onClick={() => router.push(`/listings/${post.id}`)}
+      className="cursor-pointer group"
+    >
+      ListingCard
+    </div>
+  );
 };
 
 export default PostCard;
