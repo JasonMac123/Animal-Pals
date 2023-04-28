@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
 import { format } from "date-fns";
+import Image from "next/image";
 
 interface PostCardProps {
   post: Post;
@@ -57,7 +58,18 @@ const PostCard: React.FC<PostCardProps> = ({
       onClick={() => router.push(`/listings/${post.id}`)}
       className="cursor-pointer group"
     >
-      ListingCard
+      <div>
+        <div>
+          <Image
+            fill
+            alt="Post Image"
+            src={post.imageSrc}
+            className="object-cover h-full w-full group-hover:scale-105"
+          />
+        </div>
+        <div>{reservationDate || `Cats: ${post.cats}, Dogs: ${post.dogs}`}</div>
+        {!reservation && <div>{`${post.price} / night`}</div>}
+      </div>
     </div>
   );
 };
