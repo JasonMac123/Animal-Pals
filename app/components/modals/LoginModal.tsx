@@ -98,7 +98,7 @@ const LoginModal = () => {
           onClick={redirectRegister}
           className="cursor-pointer hover:underline hover:text-neutral-400"
         >
-          Log-in
+          Register!
         </div>
       </div>
     </div>
