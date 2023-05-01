@@ -9,15 +9,18 @@ import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
 
 import useLogin from "../hooks/useLogin";
+
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Button from "../Button";
 import { useRouter } from "next/navigation";
+import useRegister from "../hooks/useRegister";
 
 const LoginModal = () => {
   const router = useRouter();
   const loginModal = useLogin();
+  const registerModal = useRegister();
   const [loading, setLoading] = useState(false);
 
   const {
@@ -30,6 +33,11 @@ const LoginModal = () => {
       password: "",
     },
   });
+
+  const redirectRegister = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setLoading(true);
@@ -85,7 +93,7 @@ const LoginModal = () => {
         onClick={() => signIn("google")}
       />
       <div className="text-neutral-600 flex-row flex gap-3">
-        <div>Already Have an account?</div>
+        <div>Don't have an account yet?</div>
         <div
           onClick={loginModal.onClose}
           className="cursor-pointer hover:underline hover:text-neutral-400"
