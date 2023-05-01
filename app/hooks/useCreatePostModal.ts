@@ -6,10 +6,10 @@ interface CreatePostModalStore {
   onClose: () => void;
 }
 
-const useLoginModal = create<CreatePostModalStore>((set) => ({
+const useCreatePostModal = create<CreatePostModalStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
 }));
 
-export default useLoginModal;
+export default useCreatePostModal;
