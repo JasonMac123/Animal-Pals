@@ -7,6 +7,7 @@ import Notification from "./components/toasts/Notification";
 
 import getCurrentUser from "./actions/getCurrentUser";
 import CategoryBar from "./components/category/CategoryBar";
+import PostCreationModal from "./components/modals/PostCreationModal";
 
 export const metadata = {
   title: "Animal-Pals",
@@ -27,6 +28,7 @@ export default async function RootLayout({
           <Notification />
           <LoginModal />
           <RegisterModal />
+          <PostCreationModal />
           <NavBar currentUser={currentUser} />
         </Client>
         <Client>
