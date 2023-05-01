@@ -95,7 +95,7 @@ const LoginModal = () => {
       <div className="text-neutral-600 flex-row flex gap-3">
         <div>Don't have an account yet?</div>
         <div
-          onClick={loginModal.onClose}
+          onClick={redirectRegister}
           className="cursor-pointer hover:underline hover:text-neutral-400"
         >
           Log-in
