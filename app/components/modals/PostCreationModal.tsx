@@ -1,7 +1,10 @@
-import useCreatePostModal from "../../hooks/useCreatePostModal";
+"use client";
+
+import useCreatePost from "../hooks/useCreatePost";
+import Modal from "./Modal";
 
 const PostCreationModal = () => {
-  const postCreationModal = useCreatePostModal();
+  const postCreationModal = useCreatePost();
 
   return (
     <Modal
