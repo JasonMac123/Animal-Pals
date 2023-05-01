@@ -12,9 +12,11 @@ import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Button from "../Button";
+import useLogin from "../hooks/useLogin";
 
 const RegisterModal = () => {
   const registerModal = useRegister();
+  const loginModal = useLogin();
   const [loading, setLoading] = useState(false);
 
   const {
@@ -28,6 +30,11 @@ const RegisterModal = () => {
       password: "",
     },
   });
+
+  const redirectLogin = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [registerModal, loginModal]);
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setLoading(true);
@@ -94,7 +101,7 @@ const RegisterModal = () => {
       <div className="text-neutral-600 flex-row flex gap-3">
         <div>Already Have an account?</div>
         <div
-          onClick={registerModal.onClose}
+          onClick={redirectLogin}
           className="cursor-pointer hover:underline hover:text-neutral-400"
         >
           Log in

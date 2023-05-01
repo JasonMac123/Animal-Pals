@@ -6,9 +6,10 @@ import Client from "./components/Client";
 import Notification from "./components/toasts/Notification";
 
 import getCurrentUser from "./actions/getCurrentUser";
+import CategoryBar from "./components/category/CategoryBar";
 
 export const metadata = {
-  title: "Airbnb",
+  title: "Animal-Pals",
   description: "A place where animals can find their vacation homes",
 };
 
@@ -28,6 +29,10 @@ export default async function RootLayout({
           <RegisterModal />
           <NavBar currentUser={currentUser} />
         </Client>
+        <Client>
+          <CategoryBar />
+        </Client>
+        <div>{children}</div>
       </body>
     </html>
   );
