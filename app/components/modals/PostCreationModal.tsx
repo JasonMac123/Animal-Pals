@@ -49,6 +49,12 @@ const PostCreationModal = () => {
           errors={errors}
         />
       </div>
+      <div>
+        <Heading
+          title="What animals does your home allow?"
+          subtitle="Select which animals are allowed down below"
+        />
+      </div>
     </div>
   );
 
