@@ -51,6 +51,7 @@ model Post {
   createdAt     DateTime @default(now())
   dogs          Boolean
   cats          Boolean
+  maxOccupancy  Int
   locationValue String
   userId        String   @db.ObjectId
   price         Int
