@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import Input from "../inputs/Input";
 import useCreatePost from "../hooks/useCreatePost";
 import { useForm, FieldValues } from "react-hook-form";
+import { categories } from "../category/CategoryBar";
 
 const PostCreationModal = () => {
   const postCreationModal = useCreatePost();
@@ -54,6 +55,11 @@ const PostCreationModal = () => {
           title="What animals does your home allow?"
           subtitle="Select which animals are allowed down below"
         />
+        <div className="flex gap-3">
+          {categories.map((item) => {
+            return <div key={item.label}>{item.label}</div>;
+          })}
+        </div>
       </div>
     </div>
   );
