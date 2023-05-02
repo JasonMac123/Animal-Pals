@@ -30,11 +30,25 @@ const PostCreationModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading
-        title="Describe your animal vacation home!"
-        subtitle="Get short and straight to the point!"
-      />
-      <Input id="title" label="Title" register={register} errors={errors} />
+      <div>
+        <Heading
+          title="Describe your animal vacation home!"
+          subtitle="Get short and straight to the point!"
+        />
+        <Input id="title" label="Title" register={register} errors={errors} />
+      </div>
+      <div>
+        <Heading
+          title="Tell us what your animal vacation offers!"
+          subtitle="Get all the juicy details about your animal vacation home!"
+        />
+        <Input
+          id="description"
+          label="description"
+          register={register}
+          errors={errors}
+        />
+      </div>
     </div>
   );
 
