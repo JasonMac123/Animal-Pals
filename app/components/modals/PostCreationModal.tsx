@@ -6,6 +6,7 @@ import Input from "../inputs/Input";
 import useCreatePost from "../hooks/useCreatePost";
 import { useForm, FieldValues } from "react-hook-form";
 import { categories } from "../category/CategoryBar";
+import CategoryInput from "../inputs/CategoryInput";
 
 const PostCreationModal = () => {
   const postCreationModal = useCreatePost();
@@ -57,7 +58,14 @@ const PostCreationModal = () => {
         />
         <div className="flex gap-3 flex-wrap w-full">
           {categories.map((item) => {
-            return <div key={item.label}>{item.label}</div>;
+            return (
+              <CategoryInput
+                key={item.label}
+                label={item.label}
+                onClick={() => {}}
+                icon={item.icon}
+              />
+            );
           })}
         </div>
       </div>
