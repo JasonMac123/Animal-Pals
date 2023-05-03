@@ -55,7 +55,7 @@ const PostCreationModal = () => {
           title="What animals does your home allow?"
           subtitle="Select which animals are allowed down below"
         />
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap w-full">
           {categories.map((item) => {
             return <div key={item.label}>{item.label}</div>;
           })}
