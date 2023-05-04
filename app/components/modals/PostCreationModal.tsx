@@ -56,7 +56,7 @@ const PostCreationModal = () => {
           title="What animals does your home allow?"
           subtitle="Select which animals are allowed down below"
         />
-        <div className="mt-2 flex gap-3 flex-wrap w-full">
+        <div className="mt-2 flex gap-3 flex-wrap w-full justify-center">
           {categories.map((item) => {
             return (
               <CategoryInput
