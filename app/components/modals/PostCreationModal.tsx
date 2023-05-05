@@ -85,6 +85,12 @@ const PostCreationModal = () => {
           })}
         </div>
       </div>
+      <div>
+        <Heading
+          title="Where is your home located?"
+          subtitle="Please fill in your address"
+        />
+      </div>
     </div>
   );
 
