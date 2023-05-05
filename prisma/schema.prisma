@@ -49,8 +49,7 @@ model Post {
   description   String
   imageSrc      String
   createdAt     DateTime @default(now())
-  dogs          Boolean
-  cats          Boolean
+  animals       String[]
   maxOccupancy  Int
   locationValue String
   userId        String   @db.ObjectId

@@ -20,8 +20,7 @@ const PostCreationModal = () => {
     reset,
   } = useForm<FieldValues>({
     defaultValues: {
-      dogs: true,
-      cats: true,
+      animals: [],
       maxOccupancy: 1,
       imageSrc: "",
       price: 1,
@@ -29,6 +28,22 @@ const PostCreationModal = () => {
       description: "",
     },
   });
+
+  let animals = watch("animals");
+
+  const setCategory = (id: string, value: string) => {
+    if (animals.includes(value)) {
+      animals = animals.filter((item: string) => item !== value);
+    } else {
+      animals.push(value);
+    }
+
+    setValue(id, animals, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    });
+  };
 
   const bodyContent = (
     <div className="flex flex-col gap-8">
@@ -62,8 +77,9 @@ const PostCreationModal = () => {
               <CategoryInput
                 key={item.label}
                 label={item.label}
-                onClick={() => {}}
                 icon={item.icon}
+                onClick={(animal) => setCategory("animals", animal)}
+                selected={animals.includes(item.label)}
               />
             );
           })}
