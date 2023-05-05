@@ -96,6 +96,7 @@ const PostCreationModal = () => {
       onSubmit={postCreationModal.onClose}
       actionLabel="Create Listing!"
       body={bodyContent}
+      overflow
     />
   );
 };
