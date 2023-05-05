@@ -90,6 +90,10 @@ const PostCreationModal = () => {
           title="Where is your home located?"
           subtitle="Please fill in your address"
         />
+        <Heading
+          title="What region in Toronto is your home located?"
+          subtitle="Select the region"
+        />
       </div>
     </div>
   );
