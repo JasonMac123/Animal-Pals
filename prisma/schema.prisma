@@ -48,6 +48,7 @@ model Post {
   title         String
   description   String
   imageSrc      String
+  address       String
   createdAt     DateTime @default(now())
   animals       String[]
   maxOccupancy  Int

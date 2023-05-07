@@ -22,6 +22,7 @@ const PostCreationModal = () => {
     defaultValues: {
       animals: [],
       maxOccupancy: 1,
+      address: "",
       imageSrc: "",
       price: 1,
       title: "",
@@ -89,6 +90,12 @@ const PostCreationModal = () => {
         <Heading
           title="Where is your home located?"
           subtitle="Please fill in your address"
+        />
+        <Input
+          id="address"
+          label="address"
+          register={register}
+          errors={errors}
         />
         <Heading
           title="What region in Toronto is your home located?"
