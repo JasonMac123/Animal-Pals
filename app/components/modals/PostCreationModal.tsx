@@ -7,6 +7,7 @@ import useCreatePost from "../hooks/useCreatePost";
 import { useForm, FieldValues } from "react-hook-form";
 import { categories } from "../category/CategoryBar";
 import CategoryInput from "../inputs/CategoryInput";
+import DropDownSelect from "../inputs/DropDownSelect";
 
 const PostCreationModal = () => {
   const postCreationModal = useCreatePost();
@@ -101,6 +102,7 @@ const PostCreationModal = () => {
           title="What region in Toronto is your home located?"
           subtitle="Select the region"
         />
+        <DropDownSelect />
       </div>
     </div>
   );
