@@ -24,6 +24,7 @@ const PostCreationModal = () => {
       animals: [],
       maxOccupancy: 1,
       address: "",
+      region: null,
       imageSrc: "",
       price: 1,
       title: "",
@@ -34,7 +35,7 @@ const PostCreationModal = () => {
   let animals = watch("animals");
   let location = watch("location");
 
-  const setFormValue = (id: string, value: string) => {
+  const setFormValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
@@ -111,7 +112,10 @@ const PostCreationModal = () => {
           title="What region in Toronto is your home located?"
           subtitle="Select the region"
         />
-        <DropDownSelect onChange={(value) => setFormValue("location", value)} />
+        <DropDownSelect
+          value={location}
+          onChange={(value) => setFormValue("location", value)}
+        />
       </div>
     </div>
   );
