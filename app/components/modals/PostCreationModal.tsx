@@ -32,6 +32,15 @@ const PostCreationModal = () => {
   });
 
   let animals = watch("animals");
+  let location = watch("location");
+
+  const setFormValue = (id: string, value: string) => {
+    setValue(id, value, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    });
+  };
 
   const setCategory = (id: string, value: string) => {
     if (animals.includes(value)) {
@@ -102,7 +111,7 @@ const PostCreationModal = () => {
           title="What region in Toronto is your home located?"
           subtitle="Select the region"
         />
-        <DropDownSelect />
+        <DropDownSelect onChange={(value) => setFormValue("location", value)} />
       </div>
     </div>
   );
