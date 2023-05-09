@@ -75,7 +75,7 @@ const Modal: React.FC<ModalProps> = ({
           >
             <div
               className={`translate border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none
-              ${overflow ? "h-[80vh]" : "h-auto"} 
+              ${overflow ? "h-[90vh]" : "h-auto"} 
               `}
             >
               <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]">

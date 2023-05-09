@@ -58,7 +58,7 @@ const PostCreationModal = () => {
   };
 
   const bodyContent = (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mb-8">
       <div className="space-y-2">
         <Heading
           title="Describe your animal vacation home!"
@@ -97,7 +97,7 @@ const PostCreationModal = () => {
           })}
         </div>
       </div>
-      <div>
+      <div className="space-y-4">
         <Heading
           title="Where is your home located?"
           subtitle="Please fill in your address"

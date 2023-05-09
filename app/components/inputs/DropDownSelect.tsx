@@ -26,6 +26,13 @@ interface DropDownSelectProps {
 }
 
 const DropDownSelect: React.FC<DropDownSelectProps> = ({ value, onChange }) => {
+  const customStyles = {
+    control: (baseStyles: any) => ({
+      ...baseStyles,
+      height: "60px",
+    }),
+  };
+
   return (
     <div>
       <Select
@@ -34,6 +41,7 @@ const DropDownSelect: React.FC<DropDownSelectProps> = ({ value, onChange }) => {
         options={regions}
         value={value}
         onChange={(value) => onChange(value as RegionValue)}
+        styles={customStyles}
       />
     </div>
   );
