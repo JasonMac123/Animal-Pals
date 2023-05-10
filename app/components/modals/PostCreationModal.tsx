@@ -60,7 +60,7 @@ const PostCreationModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-8 mb-8">
-      <div className="space-y-2">
+      <div className="space-y-4">
         <Heading
           title="Describe your animal vacation home!"
           subtitle="Get short and straight to the point!"
@@ -111,7 +111,7 @@ const PostCreationModal = () => {
           value={location}
           onChange={(value) => setFormValue("location", value)}
         />
-        <NumberCounter />
+        <NumberCounter title="How many pets can be at your place?" />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 interface CounterProps {
   title: string;
@@ -25,9 +26,19 @@ const NumberCounter: React.FC<CounterProps> = ({ title, value, onChange }) => {
     <div className="flex items-center justify-between">
       <div>{title}</div>
       <div className="flex items-center space-x-4">
-        <div onClick={onAdd}></div>
+        <div
+          onClick={onAdd}
+          className="flex w-10 h-10 rounded-full border-[1px] items-center justify-center cursor-pointer transition hover:border-black"
+        >
+          <AiOutlinePlus />
+        </div>
         <div>{value}</div>
-        <div onClick={onMinus}></div>
+        <div
+          onClick={onMinus}
+          className="flex w-10 h-10 rounded-full border-[1px] items-center justify-center cursor-pointer transition hover:border-black"
+        >
+          <AiOutlineMinus />
+        </div>
       </div>
     </div>
   );
