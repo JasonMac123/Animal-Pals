@@ -111,7 +111,6 @@ const PostCreationModal = () => {
           value={location}
           onChange={(value) => setFormValue("location", value)}
         />
-        <Heading title="How many pets can visit your home?" />
         <NumberCounter />
       </div>
     </div>

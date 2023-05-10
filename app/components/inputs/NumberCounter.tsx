@@ -3,16 +3,12 @@
 import { useCallback } from "react";
 
 interface CounterProps {
-  placeholder: string;
+  title: string;
   value: number;
   onChange: (value: number) => void;
 }
 
-const NumberCounter: React.FC<CounterProps> = ({
-  placeholder,
-  value,
-  onChange,
-}) => {
+const NumberCounter: React.FC<CounterProps> = ({ title, value, onChange }) => {
   const onAdd = useCallback(() => {
     onChange(value + 1);
   }, [onChange, value]);
@@ -25,7 +21,16 @@ const NumberCounter: React.FC<CounterProps> = ({
     onChange(value - 1);
   }, [onChange, value]);
 
-  return <div></div>;
+  return (
+    <div className="flex items-center justify-between">
+      <div>{title}</div>
+      <div className="flex items-center space-x-4">
+        <div onClick={onAdd}></div>
+        <div>{value}</div>
+        <div onClick={onMinus}></div>
+      </div>
+    </div>
+  );
 };
 
 export default NumberCounter;
