@@ -9,6 +9,7 @@ import { categories } from "../category/CategoryBar";
 import CategoryInput from "../inputs/CategoryInput";
 import DropDownSelect from "../inputs/DropDownSelect";
 import NumberCounter from "../inputs/NumberCounter";
+import ImageUpload from "../inputs/ImageUpload";
 
 const PostCreationModal = () => {
   const postCreationModal = useCreatePost();
@@ -119,6 +120,12 @@ const PostCreationModal = () => {
             setFormValue("maxOccupancy", value);
           }}
         />
+        <Heading
+          title="How much is to stay at your house?"
+          subtitle="Canadian Dollars per night"
+        />
+        <Input />
+        <ImageUpload />
       </div>
     </div>
   );
