@@ -34,7 +34,8 @@ const PostCreationModal = () => {
   });
 
   let animals = watch("animals");
-  let location = watch("location");
+  const location = watch("location");
+  let maxOccupancy = watch("maxOccupancy");
 
   const setFormValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -111,7 +112,13 @@ const PostCreationModal = () => {
           value={location}
           onChange={(value) => setFormValue("location", value)}
         />
-        <NumberCounter title="How many pets can be at your place?" />
+        <NumberCounter
+          title="How many pets can be at your place?"
+          value={maxOccupancy}
+          onChange={(value) => {
+            setFormValue("maxOccupancy", value);
+          }}
+        />
       </div>
     </div>
   );
