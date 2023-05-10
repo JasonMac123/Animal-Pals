@@ -18,6 +18,10 @@ const NumberCounter: React.FC<CounterProps> = ({
   }, [onChange, value]);
 
   const onMinus = useCallback(() => {
+    if (value === 1) {
+      return;
+    }
+
     onChange(value - 1);
   }, [onChange, value]);
 
