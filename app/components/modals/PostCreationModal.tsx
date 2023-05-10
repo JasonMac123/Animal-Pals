@@ -8,6 +8,7 @@ import { useForm, FieldValues } from "react-hook-form";
 import { categories } from "../category/CategoryBar";
 import CategoryInput from "../inputs/CategoryInput";
 import DropDownSelect from "../inputs/DropDownSelect";
+import NumberCounter from "../inputs/NumberCounter";
 
 const PostCreationModal = () => {
   const postCreationModal = useCreatePost();
@@ -65,8 +66,6 @@ const PostCreationModal = () => {
           subtitle="Get short and straight to the point!"
         />
         <Input id="title" label="Title" register={register} errors={errors} />
-      </div>
-      <div className="space-y-2">
         <Heading
           title="Tell us what your animal vacation offers!"
           subtitle="Get all the juicy details about your animal vacation home!"
@@ -77,8 +76,6 @@ const PostCreationModal = () => {
           register={register}
           errors={errors}
         />
-      </div>
-      <div>
         <Heading
           title="What animals does your home allow?"
           subtitle="Select which animals are allowed down below"
@@ -96,8 +93,6 @@ const PostCreationModal = () => {
             );
           })}
         </div>
-      </div>
-      <div className="space-y-4">
         <Heading
           title="Where is your home located?"
           subtitle="Please fill in your address"
@@ -116,6 +111,8 @@ const PostCreationModal = () => {
           value={location}
           onChange={(value) => setFormValue("location", value)}
         />
+        <Heading title="How many pets can visit your home?" />
+        <NumberCounter />
       </div>
     </div>
   );
