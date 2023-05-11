@@ -31,6 +31,11 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ value, onChange }) => {
             onClick={() => open?.()}
           >
             <MdAddPhotoAlternate size={60} /> Upload a photo!
+            {value && (
+              <div className="absolute inset-0 w-full h-full">
+                <Image alt="uploaded Image" fill src={value} />
+              </div>
+            )}
           </div>
         );
       }}
