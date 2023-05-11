@@ -36,7 +36,8 @@ const PostCreationModal = () => {
 
   let animals = watch("animals");
   const location = watch("location");
-  let maxOccupancy = watch("maxOccupancy");
+  const maxOccupancy = watch("maxOccupancy");
+  const imageSrc = watch("imageSrc");
 
   const setFormValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -124,7 +125,12 @@ const PostCreationModal = () => {
           title="How much is to stay at your house?"
           subtitle="Canadian Dollars per night"
         />
-        <ImageUpload />
+        <ImageUpload
+          value={imageSrc}
+          onChange={(value) => {
+            setFormValue("imageSrc", value);
+          }}
+        />
       </div>
     </div>
   );
