@@ -124,7 +124,6 @@ const PostCreationModal = () => {
           title="How much is to stay at your house?"
           subtitle="Canadian Dollars per night"
         />
-        <Input />
         <ImageUpload />
       </div>
     </div>
