@@ -4,15 +4,21 @@ import Heading from "../Heading";
 import Modal from "./Modal";
 import Input from "../inputs/Input";
 import useCreatePost from "../hooks/useCreatePost";
-import { useForm, FieldValues } from "react-hook-form";
+import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { categories } from "../category/CategoryBar";
 import CategoryInput from "../inputs/CategoryInput";
 import DropDownSelect from "../inputs/DropDownSelect";
 import NumberCounter from "../inputs/NumberCounter";
 import ImageUpload from "../inputs/ImageUpload";
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const PostCreationModal = () => {
   const postCreationModal = useCreatePost();
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -38,6 +44,27 @@ const PostCreationModal = () => {
   const location = watch("location");
   const maxOccupancy = watch("maxOccupancy");
   const imageSrc = watch("imageSrc");
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setLoading(true);
+
+    axios
+      .post("/api/listings", data)
+      .then(() => {
+        toast.success("Post created");
+        router.refresh();
+        reset();
+        postCreationModal.onClose();
+      })
+      .catch(() => {
+        toast.error(
+          "Could not submit, please check if you entered in every field otherwise try again."
+        );
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   const setFormValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -148,7 +175,7 @@ const PostCreationModal = () => {
       title="Create an animal vacation home listing!"
       isOpen={postCreationModal.isOpen}
       onClose={postCreationModal.onClose}
-      onSubmit={postCreationModal.onClose}
+      onSubmit={handleSubmit(onSubmit)}
       actionLabel="Create Listing!"
       body={bodyContent}
       overflow
