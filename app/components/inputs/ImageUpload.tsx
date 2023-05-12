@@ -33,7 +33,12 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ value, onChange }) => {
             <MdAddPhotoAlternate size={60} /> Upload a photo!
             {value && (
               <div className="absolute inset-0 w-full h-full">
-                <Image alt="uploaded Image" fill src={value} />
+                <Image
+                  alt="uploaded Image"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  src={value}
+                />
               </div>
             )}
           </div>
