@@ -125,6 +125,14 @@ const PostCreationModal = () => {
           title="How much is to stay at your house?"
           subtitle="Canadian Dollars per night"
         />
+        <Input
+          id="price"
+          label="price"
+          formatPrice={true}
+          type="number"
+          register={register}
+          errors={errors}
+        />
         <ImageUpload
           value={imageSrc}
           onChange={(value) => {

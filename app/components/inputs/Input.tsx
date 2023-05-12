@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = ({
         placeholder=" "
         type={type}
         className={`peer w-full p-4 pt-6 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed 
-        ${formatPrice ? "pl-99" : "pl-4"}
+        ${formatPrice ? "pl-8" : "pl-4"}
         ${errors[id] ? "border-rose-600" : "border-slate-300"} 
         ${errors[id] ? "focus:border-rose-600" : "focus:border-black"}`}
       />
