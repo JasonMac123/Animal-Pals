@@ -46,7 +46,7 @@ const PostCreationModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     axios
-      .post("/api/route", data)
+      .post("/api/posts", data)
       .then(() => {
         toast.success("Post created");
         router.refresh();
