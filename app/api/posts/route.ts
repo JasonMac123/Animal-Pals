@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       description,
       imageSrc,
       address,
-      price,
+      price: parseInt(price, 10),
       region,
       maxOccupancy,
       animals,
