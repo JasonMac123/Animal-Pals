@@ -32,6 +32,7 @@ export async function POST(request: Request) {
       region,
       maxOccupancy,
       animals,
+      userId: currentUser.id,
     },
   });
 
