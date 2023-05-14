@@ -18,7 +18,6 @@ import { useRouter } from "next/navigation";
 const PostCreationModal = () => {
   const postCreationModal = useCreatePost();
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -46,10 +45,8 @@ const PostCreationModal = () => {
   const imageSrc = watch("imageSrc");
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setLoading(true);
-
     axios
-      .post("/api/listings", data)
+      .post("/api/route", data)
       .then(() => {
         toast.success("Post created");
         router.refresh();
@@ -61,9 +58,6 @@ const PostCreationModal = () => {
           "Could not submit, please check if you entered in every field otherwise try again."
         );
       })
-      .finally(() => {
-        setLoading(false);
-      });
   };
 
   const setFormValue = (id: string, value: any) => {
@@ -124,6 +118,18 @@ const PostCreationModal = () => {
           })}
         </div>
         <Heading
+          title="How much is to stay at your house?"
+          subtitle="Canadian Dollars per night"
+        />
+        <Input
+          id="price"
+          label="price"
+          formatPrice={true}
+          type="number"
+          register={register}
+          errors={errors}
+        />
+        <Heading
           title="Where is your home located?"
           subtitle="Please fill in your address"
         />
@@ -147,18 +153,6 @@ const PostCreationModal = () => {
           onChange={(value) => {
             setFormValue("maxOccupancy", value);
           }}
-        />
-        <Heading
-          title="How much is to stay at your house?"
-          subtitle="Canadian Dollars per night"
-        />
-        <Input
-          id="price"
-          label="price"
-          formatPrice={true}
-          type="number"
-          register={register}
-          errors={errors}
         />
         <ImageUpload
           value={imageSrc}
