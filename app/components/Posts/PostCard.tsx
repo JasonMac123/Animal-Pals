@@ -56,7 +56,7 @@ const PostCard: React.FC<PostCardProps> = ({
   return (
     <div
       onClick={() => router.push(`/listings/${post.id}`)}
-      className="cursor-pointer group"
+      className="cursor-pointer group w-1/6 h-60"
     >
       <div>
         <div>
