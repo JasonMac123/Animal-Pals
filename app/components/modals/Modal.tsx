@@ -14,6 +14,7 @@ interface ModalProps {
   disabled?: boolean;
   secondaryAction?: () => void;
   secondaryLabel?: string;
+  overflow?: boolean;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -27,6 +28,7 @@ const Modal: React.FC<ModalProps> = ({
   disabled,
   secondaryAction,
   secondaryLabel,
+  overflow,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
 
@@ -71,7 +73,11 @@ const Modal: React.FC<ModalProps> = ({
               showModal ? "translate-y-0" : "translate-y-full"
             } ${showModal ? "opacity-100" : "opacity-0"}`}
           >
-            <div className="translate h-auto border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none">
+            <div
+              className={`translate border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none
+              ${overflow ? "h-[90vh]" : "h-auto"} 
+              `}
+            >
               <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]">
                 <button
                   onClick={handleClose}
@@ -81,7 +87,9 @@ const Modal: React.FC<ModalProps> = ({
                 </button>
                 <div className="text-lg font-semibold">{title}</div>
               </div>
-              <div className="relative p-7 flex-auto">{body}</div>
+              <div className="relative p-7 flex-auto overflow-y-auto">
+                {body}
+              </div>
               <div className="flex flex-col gap-2 p-6">
                 <div className="flex items-center w-full">
                   <Button

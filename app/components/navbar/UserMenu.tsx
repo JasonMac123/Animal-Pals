@@ -30,7 +30,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     }
 
     createPostModal.onOpen();
-  }, [currentUser, loginModal]);
+  }, [currentUser, loginModal, createPostModal]);
 
   return (
     <div className="relative">

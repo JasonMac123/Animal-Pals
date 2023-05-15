@@ -14,11 +14,12 @@ model User {
   id             String        @id @default(auto()) @map("_id") @db.ObjectId
   name           String?
   email          String?       @unique
-  emailVerified DateTime?
+  emailVerified  DateTime?
   image          String?
   hashedPassword String?
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
+  
   Account        Account[]
   Post           Post[]
   Reservation    Reservation[]
@@ -32,7 +33,7 @@ model Account {
   providerAccountId String
   refresh_token     String? @db.String
   access_token      String? @db.String
-  expires_at       Int?
+  expires_at        Int?
   token_type        String?
   scope             String?
   id_token          String? @db.String
@@ -48,10 +49,11 @@ model Post {
   title         String
   description   String
   imageSrc      String
+  region        String
+  address       String
   createdAt     DateTime @default(now())
-  dogs          Boolean
-  cats          Boolean
-  locationValue String
+  animals       String[]
+  maxOccupancy  Int
   userId        String   @db.ObjectId
   price         Int
 
