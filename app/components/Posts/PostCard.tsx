@@ -67,7 +67,7 @@ const PostCard: React.FC<PostCardProps> = ({
             className="object-cover h-full w-full group-hover:scale-105"
           />
         </div>
-        <div>{reservationDate || `Cats: ${post.cats}, Dogs: ${post.dogs}`}</div>
+        <div>{reservationDate || `Animals allowed:${post.animals}`}</div>
         {!reservation && <div>{`${post.price} / night`}</div>}
       </div>
     </div>
