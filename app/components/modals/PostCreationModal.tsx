@@ -40,7 +40,7 @@ const PostCreationModal = () => {
   });
 
   let animals = watch("animals");
-  const location = watch("location");
+  const region = watch("region");
   const maxOccupancy = watch("maxOccupancy");
   const imageSrc = watch("imageSrc");
 
@@ -57,7 +57,7 @@ const PostCreationModal = () => {
         toast.error(
           "Could not submit, please check if you entered in every field otherwise try again."
         );
-      })
+      });
   };
 
   const setFormValue = (id: string, value: any) => {
@@ -144,8 +144,8 @@ const PostCreationModal = () => {
           subtitle="Select the region"
         />
         <DropDownSelect
-          value={location}
-          onChange={(value) => setFormValue("location", value)}
+          value={region}
+          onChange={(value) => setFormValue("region", value)}
         />
         <NumberCounter
           title="How many pets can be at your place?"

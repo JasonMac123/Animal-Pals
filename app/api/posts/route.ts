@@ -22,6 +22,12 @@ export async function POST(request: Request) {
     animals,
   } = body;
 
+  for (const key in body) {
+    if (!body[key]) {
+      NextResponse.error();
+    }
+  }
+
   const post = await prisma.post.create({
     data: {
       title,
@@ -29,10 +35,14 @@ export async function POST(request: Request) {
       imageSrc,
       address,
       price: parseInt(price, 10),
-      region,
+      region: region.value,
       maxOccupancy,
       animals,
-      userId: currentUser.id,
+      user: {
+        connect: {
+          id: currentUser.id,
+        },
+      },
     },
   });
 
