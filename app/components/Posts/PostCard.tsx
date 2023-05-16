@@ -56,25 +56,31 @@ const PostCard: React.FC<PostCardProps> = ({
   return (
     <div
       onClick={() => router.push(`/listings/${post.id}`)}
-      className="cursor-pointer group w-1/2 h-80 flex"
+      className="cursor-pointer group w-5/12 h-72 flex gap-4 border-[2px] rounded-lg p-4 border-black hover:border-neutral-700"
     >
-      <div className="relative w-1/2 h-full">
+      <div className="relative w-1/2 h-full border-[1px] border-black rounded-xl overflow-hidden">
         <Image
           fill
           alt="Post Image"
           src={post.imageSrc}
-          className="object-contain h-full w-full group-hover:scale-105"
+          className="object-cover h-full w-full"
         />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col justify-between">
         <div>
-          <div className="flex justify-center">
+          <div className="text-center">
             {post.title}
-            <div>{post.description}</div>
+            <div className="mt-10">Description: {post.description}</div>
           </div>
         </div>
-        <div>{reservationDate || `Animals allowed:${post.animals}`}</div>
-        {!reservation && <div>{`${post.price}$ / night`}</div>}
+        <div>
+          <div>{post.region}, Ontario</div>
+          <div>Address: {post.address}</div>
+        </div>
+        <div className="flex justify-between">
+          <div>{reservationDate || `Animals allowed:${post.animals}`}</div>
+          {!reservation && <div>{`${post.price}$ / night`}</div>}
+        </div>
       </div>
     </div>
   );
