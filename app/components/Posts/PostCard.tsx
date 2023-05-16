@@ -56,19 +56,25 @@ const PostCard: React.FC<PostCardProps> = ({
   return (
     <div
       onClick={() => router.push(`/listings/${post.id}`)}
-      className="cursor-pointer group w-1/6 h-60"
+      className="cursor-pointer group w-1/2 h-80 flex"
     >
-      <div>
+      <div className="relative w-1/2 h-full">
+        <Image
+          fill
+          alt="Post Image"
+          src={post.imageSrc}
+          className="object-contain h-full w-full group-hover:scale-105"
+        />
+      </div>
+      <div className="flex flex-col">
         <div>
-          <Image
-            fill
-            alt="Post Image"
-            src={post.imageSrc}
-            className="object-cover h-full w-full group-hover:scale-105"
-          />
+          <div className="flex justify-center">
+            {post.title}
+            <div>{post.description}</div>
+          </div>
         </div>
         <div>{reservationDate || `Animals allowed:${post.animals}`}</div>
-        {!reservation && <div>{`${post.price} / night`}</div>}
+        {!reservation && <div>{`${post.price}$ / night`}</div>}
       </div>
     </div>
   );
