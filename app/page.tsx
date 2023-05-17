@@ -19,9 +19,9 @@ const Home = async () => {
   return (
     <Client>
       <div className="w-full pt-40 pl-40 flex flex-wrap justify-around">
-        {posts.map((post: any) => {
+        {posts.map((post) => {
           return (
-            <PostCard currentUser={currentUser} post={post} key={post.id} />
+            <PostCard currentUser={currentUser} data={post} key={post.id} />
           );
         })}
       </div>

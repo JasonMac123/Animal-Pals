@@ -6,7 +6,7 @@ import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import useRegister from "../hooks/useRegister";
 import useLogin from "../hooks/useLogin";
-import { safeUser } from "../../types/user";
+import { safeUser } from "../../types/types";
 import { signOut } from "next-auth/react";
 import useCreatePost from "../hooks/useCreatePost";
 

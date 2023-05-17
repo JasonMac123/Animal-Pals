@@ -1,7 +1,7 @@
 "use client";
 
 import { Post, Reservation } from "@prisma/client";
-import { safeUser } from "../../types/user";
+import { safePost, safeUser } from "../../types/types";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
@@ -9,7 +9,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 
 interface PostCardProps {
-  post: Post;
+  data: safePost;
   reservation?: Reservation;
   onAction?: (id: string) => void;
   actionLabel?: string;
@@ -18,7 +18,7 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({
-  post,
+  data,
   reservation,
   onAction,
   actionLabel,
@@ -40,8 +40,8 @@ const PostCard: React.FC<PostCardProps> = ({
       return reservation.totalPrice;
     }
 
-    return post.price;
-  }, [reservation, post.price]);
+    return data.price;
+  }, [reservation, data.price]);
 
   const reservationDate = useMemo(() => {
     if (!reservation) {
@@ -55,31 +55,31 @@ const PostCard: React.FC<PostCardProps> = ({
 
   return (
     <div
-      onClick={() => router.push(`/listings/${post.id}`)}
+      onClick={() => router.push(`/listings/${data.id}`)}
       className="cursor-pointer group w-5/12 h-72 flex gap-4 border-[2px] rounded-lg p-4 border-black hover:border-neutral-700"
     >
       <div className="relative w-1/2 h-full border-[1px] border-black rounded-xl overflow-hidden">
         <Image
           fill
           alt="Post Image"
-          src={post.imageSrc}
+          src={data.imageSrc}
           className="object-cover h-full w-full"
         />
       </div>
       <div className="flex flex-col justify-between">
         <div>
           <div className="text-center">
-            {post.title}
-            <div className="mt-10">Description: {post.description}</div>
+            {data.title}
+            <div className="mt-10">Description: {data.description}</div>
           </div>
         </div>
         <div>
-          <div>{post.region}, Ontario</div>
-          <div>Address: {post.address}</div>
+          <div>{data.region}, Ontario</div>
+          <div>Address: {data.address}</div>
         </div>
         <div className="flex justify-between">
-          <div>{reservationDate || `Animals allowed:${post.animals}`}</div>
-          {!reservation && <div>{`${post.price}$ / night`}</div>}
+          <div>{reservationDate || `Animals allowed:${data.animals}`}</div>
+          {!reservation && <div>{`${data.price}$ / night`}</div>}
         </div>
       </div>
     </div>
