@@ -1,4 +1,8 @@
-import getSpecificPost from "../../actions/getSpecificPost";
+import getCurrentUser from "../../functions/getCurrentUser";
+import getSpecificPost from "../../functions/getSpecificPost";
+import Client from "../../components/Client";
+import NoPosts from "../../components/NoPosts";
+import Post from "./Post";
 
 interface postParams {
   postId?: string;
@@ -6,8 +10,23 @@ interface postParams {
 
 const PostPage = async ({ params }: { params: postParams }) => {
   const post = await getSpecificPost(params);
+  const currentUser = await getCurrentUser();
 
-  return <div className="pt-60">Post page</div>;
+  if (!post) {
+    return (
+      <Client>
+        <NoPosts />
+      </Client>
+    );
+  }
+
+  return (
+    <div className="pt-60">
+      <Client>
+        <Post data={post} currentUser={currentUser} />
+      </Client>
+    </div>
+  );
 };
 
 export default PostPage;

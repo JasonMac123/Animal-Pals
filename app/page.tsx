@@ -1,5 +1,5 @@
-import getCurrentUser from "./actions/getCurrentUser";
-import getPosts from "./actions/getPosts";
+import getCurrentUser from "./functions/getCurrentUser";
+import getPosts from "./functions/getPosts";
 import Client from "./components/Client";
 import NoPosts from "./components/NoPosts";
 import PostCard from "./components/Posts/PostCard";

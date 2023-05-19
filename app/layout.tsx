@@ -5,7 +5,7 @@ import LoginModal from "./components/modals/LoginModal";
 import Client from "./components/Client";
 import Notification from "./components/toasts/Notification";
 
-import getCurrentUser from "./actions/getCurrentUser";
+import getCurrentUser from "./functions/getCurrentUser";
 import CategoryBar from "./components/category/CategoryBar";
 import PostCreationModal from "./components/modals/PostCreationModal";
 
