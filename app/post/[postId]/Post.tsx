@@ -20,8 +20,6 @@ const Post: React.FC<PostProps> = ({ post, currentUser }) => {
           title={post.title}
           imageSrc={post.imageSrc}
           region={post.region}
-          id={post.id}
-          currentUser={currentUser}
         />
       </div>
     </div>
