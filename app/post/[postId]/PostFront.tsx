@@ -12,8 +12,8 @@ interface PostFrontProps {
 const PostFront: React.FC<PostFrontProps> = ({ title, region, imageSrc }) => {
   return (
     <>
-      <Heading title={title} subtitle={`${region}, Toronto`} />
-      <div className="w-full h-[40vh] rounded-xl relative">
+      <Heading title={title} subtitle="" />
+      <div className="w-full h-[70vh] rounded-xl relative">
         <Image
           alt="Picture of vacation home"
           src={imageSrc}
