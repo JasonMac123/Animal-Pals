@@ -23,7 +23,7 @@ const PostPage = async ({ params }: { params: postParams }) => {
   return (
     <div className="pt-60">
       <Client>
-        <Post data={post} currentUser={currentUser} />
+        <Post post={post} currentUser={currentUser} />
       </Client>
     </div>
   );
