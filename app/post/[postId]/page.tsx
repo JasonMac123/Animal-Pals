@@ -7,7 +7,7 @@ interface postParams {
 const PostPage = async ({ params }: { params: postParams }) => {
   const post = await getSpecificPost(params);
 
-  return <div>Post page</div>;
+  return <div className="pt-60">Post page</div>;
 };
 
 export default PostPage;
