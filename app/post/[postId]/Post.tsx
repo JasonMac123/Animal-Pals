@@ -28,7 +28,6 @@ const Post: React.FC<PostProps> = ({ post, currentUser }) => {
           description={post.description}
           address={post.address}
           maxOccupancy={post.maxOccupancy}
-          region={post.region}
           price={post.price}
         />
       </div>
