@@ -3,6 +3,7 @@
 import { Reservation } from "@prisma/client";
 import { safePost, safeUser } from "../../types/types";
 import PostFront from "./PostFront";
+import PostInfo from "./PostInfo";
 
 interface PostProps {
   reservations?: Reservation[];
@@ -20,6 +21,15 @@ const Post: React.FC<PostProps> = ({ post, currentUser }) => {
           title={post.title}
           imageSrc={post.imageSrc}
           region={post.region}
+        />
+        <PostInfo
+          user={post.user}
+          animals={post.animals}
+          description={post.description}
+          address={post.address}
+          maxOccupancy={post.maxOccupancy}
+          region={post.region}
+          price={post.price}
         />
       </div>
     </div>
