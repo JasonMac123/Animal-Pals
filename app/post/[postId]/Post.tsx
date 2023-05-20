@@ -5,8 +5,10 @@ import { safePost, safeUser } from "../../types/types";
 import PostFront from "./PostFront";
 import PostInfo from "./PostInfo";
 import { useRouter } from "next/navigation";
-import { useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { eachDayOfInterval } from "date-fns";
+import useLogin from "../../components/hooks/useLogin";
+import axios from "axios";
 
 const initialDate = {
   startDate: new Date(),
@@ -28,6 +30,7 @@ const Post: React.FC<PostProps> = ({
   reservations = [],
 }) => {
   const router = useRouter();
+  const loginModal = useLogin();
 
   const bookedDates = useMemo(() => {
     let dates: Date[] = [];
@@ -43,6 +46,15 @@ const Post: React.FC<PostProps> = ({
 
     return dates;
   }, [reservations]);
+
+  const [totalPrice, setTotalPrice] = useState(post.price);
+  const [reservationDate, setReservationDate] = useState(initialDate);
+
+  const createReservation = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+  }, []);
 
   return (
     <div className="mx-auto">
