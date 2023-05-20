@@ -9,6 +9,7 @@ import { useCallback, useMemo, useState } from "react";
 import { eachDayOfInterval } from "date-fns";
 import useLogin from "../../components/hooks/useLogin";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const initialDate = {
   startDate: new Date(),
@@ -54,7 +55,23 @@ const Post: React.FC<PostProps> = ({
     if (!currentUser) {
       return loginModal.onOpen();
     }
-  }, []);
+
+    axios
+      .post("/reservations", {
+        totalPrice,
+        startDate: reservationDate.startDate,
+        endDate: reservationDate.endDate,
+        postId: post?.id,
+      })
+      .then(() => {
+        toast.success("Reservation booked successfully!");
+        setReservationDate(initialDate);
+        router.refresh();
+      })
+      .catch(() => {
+        toast.error("Error, could not book reservation.");
+      });
+  }, [totalPrice, initialDate, post?.id, router, currentUser, loginModal]);
 
   return (
     <div className="mx-auto">
