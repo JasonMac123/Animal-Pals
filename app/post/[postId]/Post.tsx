@@ -5,8 +5,8 @@ import { safePost, safeUser } from "../../types/types";
 import PostFront from "./PostFront";
 import PostInfo from "./PostInfo";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
-import { eachDayOfInterval } from "date-fns";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { differenceInDays, eachDayOfInterval } from "date-fns";
 import useLogin from "../../components/hooks/useLogin";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -72,6 +72,21 @@ const Post: React.FC<PostProps> = ({
         toast.error("Error, could not book reservation.");
       });
   }, [totalPrice, initialDate, post?.id, router, currentUser, loginModal]);
+
+  useEffect(() => {
+    if (reservationDate.startDate && reservationDate.endDate) {
+      const numberOfDays = differenceInDays(
+        reservationDate.endDate,
+        reservationDate.startDate
+      );
+
+      if (!numberOfDays) {
+        setTotalPrice(post.price);
+      } else {
+        setTotalPrice(post.price * numberOfDays);
+      }
+    }
+  });
 
   return (
     <div className="mx-auto">
