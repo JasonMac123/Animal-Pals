@@ -1,5 +1,5 @@
-import getCurrentUser from "./actions/getCurrentUser";
-import getPosts from "./actions/getPosts";
+import getCurrentUser from "./functions/getCurrentUser";
+import getPosts from "./functions/getPosts";
 import Client from "./components/Client";
 import NoPosts from "./components/NoPosts";
 import PostCard from "./components/Posts/PostCard";
@@ -18,9 +18,13 @@ const Home = async () => {
 
   return (
     <Client>
-      {posts.map((post: any) => {
-        return <PostCard currentUser={currentUser} post={post} key={post.id} />;
-      })}
+      <div className="w-full pt-40 pl-40 flex flex-wrap justify-around">
+        {posts.map((post) => {
+          return (
+            <PostCard currentUser={currentUser} data={post} key={post.id} />
+          );
+        })}
+      </div>
     </Client>
   );
 };

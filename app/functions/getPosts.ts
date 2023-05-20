@@ -8,7 +8,12 @@ export default async function getPosts() {
       },
     });
 
-    return posts;
+    const safePosts = posts.map((post) => ({
+      ...post,
+      createdAt: post.createdAt.toISOString(),
+    }));
+
+    return safePosts;
   } catch (error: any) {
     throw new Error(error);
   }
