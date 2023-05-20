@@ -86,7 +86,7 @@ const Post: React.FC<PostProps> = ({
         setTotalPrice(post.price * numberOfDays);
       }
     }
-  });
+  }, [reservationDate, post.price]);
 
   return (
     <div className="mx-auto">
