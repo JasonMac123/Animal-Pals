@@ -6,10 +6,11 @@ import PostFront from "./PostFront";
 import PostInfo from "./PostInfo";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
+import { differenceInCalendarDays, eachDayOfInterval, setDate } from "date-fns";
 import useLogin from "../../components/hooks/useLogin";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import PostReservation from "./PostReservation";
 
 const initialDate = {
   startDate: new Date(),
@@ -106,6 +107,14 @@ const Post: React.FC<PostProps> = ({
           region={post.region}
         />
       </div>
+      <PostReservation
+        price={post.price}
+        totalPrice={totalPrice}
+        onChangeDate={(value) => setReservationDate(value)}
+        dateRange={reservationDate}
+        onSubmit={createReservation}
+        bookedDays={bookedDates}
+      />
     </div>
   );
 };
