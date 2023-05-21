@@ -1,6 +1,7 @@
 "use client";
 
-import { Calendar, Range } from "react-date-range";
+import { Range } from "react-date-range";
+import Calendar from "../../components/inputs/Calendar";
 
 interface PostReservationProps {
   price: number;
