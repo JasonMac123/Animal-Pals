@@ -1,7 +1,6 @@
 "use client";
 
-import { Reservation } from "@prisma/client";
-import { safePost, safeUser } from "../../types/types";
+import { safePost, safeUser, typeSafeReservations } from "../../types/types";
 import PostFront from "./PostFront";
 import PostInfo from "./PostInfo";
 import { useRouter } from "next/navigation";
@@ -20,7 +19,7 @@ const initialDate = {
 };
 
 interface PostProps {
-  reservations?: Reservation[];
+  reservations?: typeSafeReservations[];
   post: safePost & {
     user: safeUser;
   };
