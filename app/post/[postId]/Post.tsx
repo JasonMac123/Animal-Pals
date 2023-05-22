@@ -11,6 +11,7 @@ import useLogin from "../../components/hooks/useLogin";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import PostReservation from "./PostReservation";
+import { Range } from "react-date-range";
 
 const initialDate = {
   startDate: new Date(),
@@ -50,7 +51,7 @@ const Post: React.FC<PostProps> = ({
   }, [reservations]);
 
   const [totalPrice, setTotalPrice] = useState(post.price);
-  const [reservationDate, setReservationDate] = useState(initialDate);
+  const [reservationDate, setReservationDate] = useState<Range>(initialDate);
 
   const createReservation = useCallback(() => {
     if (!currentUser) {
