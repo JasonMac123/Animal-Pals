@@ -97,24 +97,26 @@ const Post: React.FC<PostProps> = ({
           imageSrc={post.imageSrc}
           region={post.region}
         />
-        <PostInfo
-          user={post.user}
-          animals={post.animals}
-          description={post.description}
-          address={post.address}
-          maxOccupancy={post.maxOccupancy}
-          price={post.price}
-          region={post.region}
-        />
+        <div className="flex justify-around">
+          <PostInfo
+            user={post.user}
+            animals={post.animals}
+            description={post.description}
+            address={post.address}
+            maxOccupancy={post.maxOccupancy}
+            price={post.price}
+            region={post.region}
+          />
+          <PostReservation
+            price={post.price}
+            totalPrice={totalPrice}
+            onChangeDate={(value) => setReservationDate(value)}
+            dateRange={reservationDate}
+            onSubmit={createReservation}
+            bookedDates={bookedDates}
+          />
+        </div>
       </div>
-      <PostReservation
-        price={post.price}
-        totalPrice={totalPrice}
-        onChangeDate={(value) => setReservationDate(value)}
-        dateRange={reservationDate}
-        onSubmit={createReservation}
-        bookedDays={bookedDates}
-      />
     </div>
   );
 };
