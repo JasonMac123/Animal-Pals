@@ -90,7 +90,7 @@ const Post: React.FC<PostProps> = ({
   }, [reservationDate, post.price]);
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto mb-10">
       <div className="flex flex-col gap-4">
         <PostFront
           title={post.title}

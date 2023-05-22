@@ -33,7 +33,10 @@ const PostReservation: React.FC<PostReservationProps> = ({
         onChange={(value) => onChangeDate(value.selection)}
       />
       <hr />
-      <div className="p-4 flex items-center justify-between"></div>
+      <div className="p-4 flex items-center justify-center">
+        <div>Your Total :</div>
+        <div> $ {totalPrice}</div>
+      </div>
     </div>
   );
 };
