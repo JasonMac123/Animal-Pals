@@ -2,6 +2,7 @@
 
 import { Range } from "react-date-range";
 import Calendar from "../../components/inputs/Calendar";
+import Button from "../../components/Button";
 
 interface PostReservationProps {
   price: number;
@@ -33,6 +34,9 @@ const PostReservation: React.FC<PostReservationProps> = ({
         onChange={(value) => onChangeDate(value.selection)}
       />
       <hr />
+      <div>
+        <Button label="Book Reservation!" onClick={onSubmit} />
+      </div>
       <div className="p-4 flex items-center justify-center">
         <div>Your Total :</div>
         <div> $ {totalPrice}</div>
