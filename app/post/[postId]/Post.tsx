@@ -58,7 +58,7 @@ const Post: React.FC<PostProps> = ({
     }
 
     axios
-      .post("/reservations", {
+      .post("/api/reservations", {
         totalPrice,
         startDate: reservationDate.startDate,
         endDate: reservationDate.endDate,
