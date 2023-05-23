@@ -3,6 +3,7 @@ import getSpecificPost from "../../functions/getSpecificPost";
 import Client from "../../components/Client";
 import NoPosts from "../../components/NoPosts";
 import Post from "./Post";
+import getReservations from "../../functions/getReservation";
 
 interface postParams {
   postId?: string;
@@ -10,6 +11,7 @@ interface postParams {
 
 const PostPage = async ({ params }: { params: postParams }) => {
   const post = await getSpecificPost(params);
+  const reservations = await getReservations(params);
   const currentUser = await getCurrentUser();
 
   if (!post) {
@@ -23,7 +25,11 @@ const PostPage = async ({ params }: { params: postParams }) => {
   return (
     <div className="pt-40 w-3/4 mx-auto">
       <Client>
-        <Post post={post} currentUser={currentUser} />
+        <Post
+          post={post}
+          currentUser={currentUser}
+          reservations={reservations}
+        />
       </Client>
     </div>
   );
