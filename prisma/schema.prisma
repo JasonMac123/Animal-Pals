@@ -11,18 +11,18 @@ datasource db {
 }
 
 model User {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
   name           String?
-  email          String?       @unique
+  email          String?   @unique
   image          String?
   hashedPassword String?
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
-  emailVerified   DateTime?
-  
-  Account        Account[]
-  Post           Post[]
-  Reservation    Reservation[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  emailVerified  DateTime?
+
+  Account     Account[]
+  Post        Post[]
+  Reservation Reservation[]
 }
 
 model Account {
@@ -45,17 +45,17 @@ model Account {
 }
 
 model Post {
-  id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  title         String
-  description   String
-  imageSrc      String
-  region        String
-  address       String
-  createdAt     DateTime @default(now())
-  animals       String[]
-  maxOccupancy  Int
-  userId        String   @db.ObjectId
-  price         Int
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  description  String
+  imageSrc     String
+  region       String
+  address      String
+  createdAt    DateTime @default(now())
+  animals      String[]
+  maxOccupancy Int
+  userId       String   @db.ObjectId
+  price        Int
 
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]

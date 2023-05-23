@@ -25,7 +25,11 @@ const PostPage = async ({ params }: { params: postParams }) => {
   return (
     <div className="pt-40 w-3/4 mx-auto">
       <Client>
-        <Post post={post} currentUser={currentUser} />
+        <Post
+          post={post}
+          currentUser={currentUser}
+          reservations={reservations}
+        />
       </Client>
     </div>
   );
