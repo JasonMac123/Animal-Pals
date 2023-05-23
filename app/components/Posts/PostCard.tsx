@@ -7,6 +7,7 @@ import { useCallback, useMemo } from "react";
 
 import { format } from "date-fns";
 import Image from "next/image";
+import Button from "../Button";
 
 interface PostCardProps {
   data: safePost;
@@ -81,6 +82,9 @@ const PostCard: React.FC<PostCardProps> = ({
           <div>{reservationDate || `Animals allowed:${data.animals}`}</div>
           {!reservation && <div>{`${data.price}$ / night`}</div>}
         </div>
+        {onAction && actionLabel && (
+          <Button label={actionLabel} onClick={handleCancel} />
+        )}
       </div>
     </div>
   );

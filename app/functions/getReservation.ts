@@ -34,11 +34,13 @@ export default async function getReservations(params: getReservationParams) {
       createdAt: reservation.createdAt.toISOString(),
       startDate: reservation.startDate.toISOString(),
       endDate: reservation.endDate.toISOString(),
-      listing: {
+      post: {
         ...reservation.post,
         createdAt: reservation.post.createdAt.toISOString(),
       },
     }));
+
+    console.log(typeSafeReservations);
 
     return typeSafeReservations;
   } catch (error: any) {
