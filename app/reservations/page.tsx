@@ -32,4 +32,10 @@ const UserReservations = async () => {
       </Client>
     );
   }
+
+  return (
+    <Client>
+      <Reservations />
+    </Client>
+  );
 };
