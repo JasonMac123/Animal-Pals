@@ -67,7 +67,7 @@ const Post: React.FC<PostProps> = ({
       .then(() => {
         toast.success("Reservation booked successfully!");
         setReservationDate(initialDate);
-        router.refresh();
+        router.push("/reservations");
       })
       .catch(() => {
         toast.error("Error, could not book reservation.");
