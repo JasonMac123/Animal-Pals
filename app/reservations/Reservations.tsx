@@ -19,21 +19,15 @@ const Reservations: React.FC<ReservationsProps> = ({
 }) => {
   const router = useRouter();
 
-  const [deletePost, setDeletePost] = useState("");
   const cancelReservation = useCallback(
     (id: string) => {
-      setDeletePost(id);
-
       axios
-        .delete(`/api/reservations/${id}`)
+        .delete(`/api/reservations/${id}/`)
         .then(() => {
           toast.success("Reservation cancelled");
         })
         .catch((error: any) => {
           toast.error("could not cancel reservation");
-        })
-        .finally(() => {
-          setDeletePost("");
         });
     },
     [router]

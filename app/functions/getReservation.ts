@@ -25,12 +25,12 @@ export default async function getReservations(params: getReservationParams) {
         post: true,
       },
       orderBy: {
-        createdAt: "desc",
+        endDate: "asc",
       },
     });
 
     const typeSafeReservations = reservations.map((reservation) => ({
-      ...reservations,
+      ...reservation,
       createdAt: reservation.createdAt.toISOString(),
       startDate: reservation.startDate.toISOString(),
       endDate: reservation.endDate.toISOString(),
@@ -39,8 +39,6 @@ export default async function getReservations(params: getReservationParams) {
         createdAt: reservation.post.createdAt.toISOString(),
       },
     }));
-
-    console.log(typeSafeReservations);
 
     return typeSafeReservations;
   } catch (error: any) {
