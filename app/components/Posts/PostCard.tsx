@@ -36,14 +36,6 @@ const PostCard: React.FC<PostCardProps> = ({
     [onAction, actionId]
   );
 
-  const price = useMemo(() => {
-    if (reservation) {
-      return reservation.totalPrice;
-    }
-
-    return data.price;
-  }, [reservation, data.price]);
-
   const reservationDate = useMemo(() => {
     if (!reservation) {
       return null;
@@ -80,6 +72,7 @@ const PostCard: React.FC<PostCardProps> = ({
         </div>
         <div className="flex justify-between">
           <div>{reservationDate || `Animals allowed:${data.animals}`}</div>
+          {reservation && <div>{reservation.totalPrice}</div>}
           {!reservation && <div>{`${data.price}$ / night`}</div>}
         </div>
         {onAction && actionLabel && (
