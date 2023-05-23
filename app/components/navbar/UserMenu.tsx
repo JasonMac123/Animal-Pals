@@ -9,6 +9,7 @@ import useLogin from "../hooks/useLogin";
 import { safeUser } from "../../types/types";
 import { signOut } from "next-auth/react";
 import useCreatePost from "../hooks/useCreatePost";
+import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
   currentUser?: safeUser | null;
@@ -19,6 +20,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const loginModal = useLogin();
   const createPostModal = useCreatePost();
   const [openStatus, setOpenStatus] = useState(false);
+  const router = useRouter();
 
   const toggleOpen = useCallback(() => {
     setOpenStatus((value) => !value);
@@ -57,8 +59,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-                <MenuItem onClick={() => {}} label="Reservations" />
-                <MenuItem onClick={() => {}} label="Past trips" />
+                <MenuItem
+                  onClick={() => router.push("/trips")}
+                  label="Reservations"
+                />
                 <MenuItem onClick={() => signOut()} label="Log-Out" />
               </>
             ) : (
