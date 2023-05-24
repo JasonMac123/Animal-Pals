@@ -39,7 +39,7 @@ const Reservations: React.FC<ReservationsProps> = ({
         title="Your Reservations"
         subtitle="Your past and ongoing reservations"
       />
-      <div className="w-full pt-40 flex flex-wrap justify-around">
+      <div className="w-full pt-40 flex flex-wrap gap-4">
         {reservations.map((reservation) => {
           console.log(reservation);
           return (
