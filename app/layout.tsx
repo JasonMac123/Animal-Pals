@@ -8,6 +8,7 @@ import Notification from "./components/toasts/Notification";
 import getCurrentUser from "./functions/getCurrentUser";
 import CategoryBar from "./components/category/CategoryBar";
 import PostCreationModal from "./components/modals/PostCreationModal";
+import SearchModal from "./components/modals/SearchModal";
 
 export const metadata = {
   title: "Animal-Pals",
@@ -26,6 +27,7 @@ export default async function RootLayout({
       <body>
         <Client>
           <Notification />
+          <SearchModal />
           <LoginModal />
           <RegisterModal />
           <PostCreationModal />
