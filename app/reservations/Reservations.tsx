@@ -35,11 +35,8 @@ const Reservations: React.FC<ReservationsProps> = ({
 
   return (
     <div>
-      <Heading
-        title="Your Reservations"
-        subtitle="Your past and ongoing reservations"
-      />
-      <div className="w-full pt-40 flex flex-wrap gap-4">
+      <Heading title="Your Reservations" subtitle="Your current reservations" />
+      <div className="w-full pt-40 flex flex-wrap gap-4 px-12">
         {reservations.map((reservation) => {
           return (
             <PostCard

@@ -72,7 +72,11 @@ const PostCard: React.FC<PostCardProps> = ({
         </div>
         <div className="flex justify-between">
           <div>{reservationDate || `Animals allowed:${data.animals}`}</div>
-          {reservation && <div>{reservation.totalPrice}</div>}
+          {reservation && (
+            <div className="text-green-500 text-2xl">
+              $ {reservation.totalPrice}
+            </div>
+          )}
           {!reservation && <div>{`${data.price}$ / night`}</div>}
         </div>
         {onAction && actionLabel && (
