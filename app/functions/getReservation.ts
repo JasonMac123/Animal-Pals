@@ -9,7 +9,11 @@ export default async function getReservations(params: getReservationParams) {
   try {
     const { postId, userId } = params;
 
-    const query: any = {};
+    const query: any = {
+      startDate: {
+        gte: new Date(),
+      },
+    };
 
     if (postId) {
       query.postId = postId;

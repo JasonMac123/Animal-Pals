@@ -41,7 +41,6 @@ const Reservations: React.FC<ReservationsProps> = ({
       />
       <div className="w-full pt-40 flex flex-wrap gap-4">
         {reservations.map((reservation) => {
-          console.log(reservation);
           return (
             <PostCard
               key={reservation.id}
