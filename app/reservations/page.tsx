@@ -4,6 +4,7 @@ import Client from "../components/Client";
 import getCurrentUser from "../functions/getCurrentUser";
 import getReservations from "../functions/getReservation";
 import Heading from "../components/Heading";
+import Reservations from "./Reservations";
 
 const UserReservations = async () => {
   const currentUser = await getCurrentUser();
@@ -32,4 +33,12 @@ const UserReservations = async () => {
       </Client>
     );
   }
+
+  return (
+    <Client>
+      <Reservations currentUser={currentUser} reservations={reservations} />
+    </Client>
+  );
 };
+
+export default UserReservations;

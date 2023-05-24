@@ -7,6 +7,7 @@ import { useCallback, useMemo } from "react";
 
 import { format } from "date-fns";
 import Image from "next/image";
+import Button from "../Button";
 
 interface PostCardProps {
   data: safePost;
@@ -34,14 +35,6 @@ const PostCard: React.FC<PostCardProps> = ({
     },
     [onAction, actionId]
   );
-
-  const price = useMemo(() => {
-    if (reservation) {
-      return reservation.totalPrice;
-    }
-
-    return data.price;
-  }, [reservation, data.price]);
 
   const reservationDate = useMemo(() => {
     if (!reservation) {
@@ -79,8 +72,16 @@ const PostCard: React.FC<PostCardProps> = ({
         </div>
         <div className="flex justify-between">
           <div>{reservationDate || `Animals allowed:${data.animals}`}</div>
+          {reservation && (
+            <div className="text-green-500 text-2xl">
+              $ {reservation.totalPrice}
+            </div>
+          )}
           {!reservation && <div>{`${data.price}$ / night`}</div>}
         </div>
+        {onAction && actionLabel && (
+          <Button label={actionLabel} onClick={handleCancel} />
+        )}
       </div>
     </div>
   );

@@ -9,7 +9,11 @@ export default async function getReservations(params: getReservationParams) {
   try {
     const { postId, userId } = params;
 
-    const query: any = {};
+    const query: any = {
+      startDate: {
+        gte: new Date(),
+      },
+    };
 
     if (postId) {
       query.postId = postId;
@@ -25,16 +29,16 @@ export default async function getReservations(params: getReservationParams) {
         post: true,
       },
       orderBy: {
-        createdAt: "desc",
+        endDate: "asc",
       },
     });
 
     const typeSafeReservations = reservations.map((reservation) => ({
-      ...reservations,
+      ...reservation,
       createdAt: reservation.createdAt.toISOString(),
       startDate: reservation.startDate.toISOString(),
       endDate: reservation.endDate.toISOString(),
-      listing: {
+      post: {
         ...reservation.post,
         createdAt: reservation.post.createdAt.toISOString(),
       },
