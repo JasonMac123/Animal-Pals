@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import { useCallback, useState } from "react";
 import Heading from "../Heading";
 import DropDownSelect from "../inputs/DropDownSelect";
+import NumberCounter from "../inputs/NumberCounter";
 
 const SearchModal = () => {
   const searchModal = useSearch();
@@ -48,6 +49,11 @@ const SearchModal = () => {
     <div className="flex flex-col gap-8">
       <Heading title="What area are you looking for?" />
       <DropDownSelect value={region} onChange={(value) => setRegion(value)} />
+      <NumberCounter
+        title="How many pets do you have?"
+        value={petCount}
+        onChange={(value) => setPetCount(value)}
+      />
     </div>
   );
 
