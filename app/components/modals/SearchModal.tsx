@@ -55,9 +55,10 @@ const SearchModal = () => {
     <Modal
       isOpen={searchModal.isOpen}
       onClose={searchModal.onClose}
-      onSubmit={searchModal.onOpen}
+      onSubmit={onSubmit}
       title="Filter"
       actionLabel="Search!"
+      body={bodyContent}
     />
   );
 };
