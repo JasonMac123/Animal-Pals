@@ -63,7 +63,7 @@ const SearchModal = () => {
       onClose={searchModal.onClose}
       onSubmit={onSubmit}
       title="Filter"
-      actionLabel="Search!"
+      actionLabel="Filter Posts"
       body={bodyContent}
     />
   );
