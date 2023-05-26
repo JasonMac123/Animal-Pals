@@ -1,21 +1,16 @@
 import prisma from "../prisma/prismadb";
 
 export interface postParams {
-  userId?: string;
   maxOccupancy?: number;
-  region: string;
-  category: string;
+  region?: string;
+  category?: string;
 }
 
 export default async function getPosts(params: postParams) {
   try {
-    const { userId, maxOccupancy, region, category } = params;
+    const { maxOccupancy, region, category } = params;
 
     let query: any = {};
-
-    if (userId) {
-      query.userId = userId;
-    }
 
     if (maxOccupancy) {
       query.maxOccupancy = {
