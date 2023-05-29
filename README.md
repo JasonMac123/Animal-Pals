@@ -4,7 +4,7 @@ Simple overview of use/purpose.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+This app is a place where users can find a ideal location for their pets to stay while they go on a vacation or are too busy to care for their pets. Users can find and book a place for their pets to stay.
 
 ## ScreenShots
 
