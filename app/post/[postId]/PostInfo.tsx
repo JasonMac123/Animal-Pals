@@ -41,7 +41,6 @@ const PostInfo: React.FC<PostInfoProps> = ({
         <div className="text-green-500 text-3xl">{price}$ / Night</div>
       </div>
       <hr />
-      <div className="text-md">{description}</div>
     </div>
   );
 };

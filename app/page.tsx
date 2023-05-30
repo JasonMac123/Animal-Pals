@@ -1,11 +1,15 @@
 import getCurrentUser from "./functions/getCurrentUser";
-import getPosts from "./functions/getPosts";
+import getPosts, { postParams } from "./functions/getPosts";
 import Client from "./components/Client";
 import NoPosts from "./components/NoPosts";
 import PostCard from "./components/Posts/PostCard";
 
-const Home = async () => {
-  const posts = await getPosts();
+interface HomeProps {
+  searchParams: postParams;
+}
+
+const Home = async ({ searchParams }: HomeProps) => {
+  const posts = await getPosts(searchParams);
   const currentUser = await getCurrentUser();
 
   if (posts.length === 0) {

@@ -15,7 +15,6 @@ interface PostCardProps {
   onAction?: (id: string) => void;
   actionLabel?: string;
   actionId?: string;
-  currentUser?: safeUser | null;
 }
 
 const PostCard: React.FC<PostCardProps> = ({
@@ -24,7 +23,6 @@ const PostCard: React.FC<PostCardProps> = ({
   onAction,
   actionLabel,
   actionId = "",
-  currentUser,
 }) => {
   const router = useRouter();
 
