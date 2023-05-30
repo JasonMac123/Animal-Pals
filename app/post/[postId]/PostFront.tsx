@@ -6,10 +6,16 @@ import Heading from "../../components/Heading";
 interface PostFrontProps {
   title: string;
   region: string;
+  description: string;
   imageSrc: string;
 }
 
-const PostFront: React.FC<PostFrontProps> = ({ title, region, imageSrc }) => {
+const PostFront: React.FC<PostFrontProps> = ({
+  title,
+  region,
+  description,
+  imageSrc,
+}) => {
   return (
     <>
       <Heading title={title} subtitle="" />
@@ -21,6 +27,8 @@ const PostFront: React.FC<PostFrontProps> = ({ title, region, imageSrc }) => {
           className="object-cover w-full"
         />
       </div>
+      <div>{region}, Ontario</div>
+      <div>{description}</div>
     </>
   );
 };

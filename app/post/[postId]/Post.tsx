@@ -91,17 +91,17 @@ const Post: React.FC<PostProps> = ({
 
   return (
     <div className="mx-auto mb-10">
-      <div className="flex flex-col gap-4">
+      <div className="flex gap-4">
         <PostFront
           title={post.title}
           imageSrc={post.imageSrc}
           region={post.region}
+          description={post.description}
         />
-        <div className="flex justify-around">
+        <div className="flex flex-col">
           <PostInfo
             user={post.user}
             animals={post.animals}
-            description={post.description}
             address={post.address}
             maxOccupancy={post.maxOccupancy}
             price={post.price}
