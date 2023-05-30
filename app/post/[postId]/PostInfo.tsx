@@ -6,7 +6,6 @@ import { safeUser } from "../../types/types";
 interface PostInfoProps {
   user: safeUser;
   animals: string[];
-  description: string;
   maxOccupancy: number;
   address: string;
   region: string;
@@ -16,7 +15,6 @@ interface PostInfoProps {
 const PostInfo: React.FC<PostInfoProps> = ({
   user,
   animals,
-  description,
   maxOccupancy,
   address,
   region,
