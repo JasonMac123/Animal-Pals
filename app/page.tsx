@@ -10,7 +10,6 @@ interface HomeProps {
 
 const Home = async ({ searchParams }: HomeProps) => {
   const posts = await getPosts(searchParams);
-  const currentUser = await getCurrentUser();
 
   if (posts.length === 0) {
     return (
@@ -24,9 +23,7 @@ const Home = async ({ searchParams }: HomeProps) => {
     <Client>
       <div className="w-full pt-40 pl-40 flex flex-wrap justify-around">
         {posts.map((post) => {
-          return (
-            <PostCard currentUser={currentUser} data={post} key={post.id} />
-          );
+          return <PostCard data={post} key={post.id} />;
         })}
       </div>
     </Client>
