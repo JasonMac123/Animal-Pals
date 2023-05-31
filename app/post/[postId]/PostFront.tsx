@@ -17,7 +17,7 @@ const PostFront: React.FC<PostFrontProps> = ({
   imageSrc,
 }) => {
   return (
-    <>
+    <div className="flex flex-col w-1/2">
       <Heading title={title} subtitle="" />
       <div className="w-full h-[70vh] rounded-xl relative">
         <Image
@@ -29,7 +29,7 @@ const PostFront: React.FC<PostFrontProps> = ({
       </div>
       <div>{region}, Ontario</div>
       <div>{description}</div>
-    </>
+    </div>
   );
 };
 
