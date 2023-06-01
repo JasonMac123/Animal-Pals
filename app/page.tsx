@@ -21,7 +21,7 @@ const Home = async ({ searchParams }: HomeProps) => {
 
   return (
     <Client>
-      <div className="w-full pt-40 pl-40 flex flex-wrap justify-around">
+      <div className="w-full pt-72 lg:pt-40 lg:pl-40 flex flex-wrap justify-around">
         {posts.map((post) => {
           return <PostCard data={post} key={post.id} />;
         })}
