@@ -30,8 +30,8 @@ const CategoryBar = () => {
   }
 
   return (
-    <div className="fixed top-24 w-full h-40 lg:h-full lg:w-40 bg-amber-200">
-      <div className="pt-12 flex flex-row lg:flex-col items-center justify-center space-x-8 lg:space-y-4 lg:my-4">
+    <div className="fixed top-40 md:top-28 w-full h-40 lg:h-full lg:w-40 bg-amber-200">
+      <div className="pt-12 flex flex-row lg:flex-col items-center justify-center space-x-4 lg:space-x-0 lg:space-y-4 lg:my-4 overflow-x-hidden lg:overflow-visible">
         {categories.map((item) => {
           return (
             <CategoryItem
