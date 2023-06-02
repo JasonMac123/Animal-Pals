@@ -1,6 +1,7 @@
 "use client";
 
-import { FaDog, FaCat } from "react-icons/fa";
+import { FaDog, FaCat, FaFish } from "react-icons/fa";
+import { GiKiwiBird, GiSandSnake } from "react-icons/gi";
 import { BiQuestionMark } from "react-icons/bi";
 import CategoryItem from "./CategoryItem";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -15,7 +16,19 @@ export const categories = [
     icon: FaDog,
   },
   {
-    label: "Other animals",
+    label: "Birds",
+    icon: GiKiwiBird,
+  },
+  {
+    label: "Reptiles",
+    icon: GiSandSnake,
+  },
+  {
+    label: "Fish",
+    icon: FaFish,
+  },
+  {
+    label: "Other",
     icon: BiQuestionMark,
   },
 ];
