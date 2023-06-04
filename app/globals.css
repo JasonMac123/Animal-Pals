@@ -5,5 +5,5 @@
 .rdrCalendarWrapper,
 .rdrMonths,
 .rdrMonth {
-  width: 30vw !important;
+  width: 100% !important;
 }

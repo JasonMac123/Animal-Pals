@@ -47,9 +47,9 @@ const PostCard: React.FC<PostCardProps> = ({
   return (
     <div
       onClick={() => router.push(`/post/${data.id}`)}
-      className="cursor-pointer group w-5/12 h-72 flex gap-4 border-[2px] rounded-lg p-4 border-black hover:border-neutral-700"
+      className="cursor-pointer group w-11/12 lg:w-2/3 xl:w-5/12 h-[60vh] md:h-72 flex flex-col md:flex-row gap-4 border-[2px] rounded-lg p-4 border-black hover:border-neutral-700"
     >
-      <div className="relative w-1/2 h-full border-[1px] border-black rounded-xl overflow-hidden">
+      <div className="relative w-full md:w-1/2 h-full border-[1px] border-black rounded-xl overflow-hidden">
         <Image
           fill
           alt="Post Image"

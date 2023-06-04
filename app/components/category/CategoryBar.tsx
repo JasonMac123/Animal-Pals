@@ -1,6 +1,7 @@
 "use client";
 
-import { FaDog, FaCat } from "react-icons/fa";
+import { FaDog, FaCat, FaFish } from "react-icons/fa";
+import { GiKiwiBird, GiSandSnake } from "react-icons/gi";
 import { BiQuestionMark } from "react-icons/bi";
 import CategoryItem from "./CategoryItem";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -9,17 +10,26 @@ export const categories = [
   {
     label: "Cats",
     icon: FaCat,
-    description: "This place allows cats",
   },
   {
     label: "Dogs",
     icon: FaDog,
-    description: "This place allows dogs",
   },
   {
-    label: "Other animals",
+    label: "Birds",
+    icon: GiKiwiBird,
+  },
+  {
+    label: "Reptiles",
+    icon: GiSandSnake,
+  },
+  {
+    label: "Fish",
+    icon: FaFish,
+  },
+  {
+    label: "Other",
     icon: BiQuestionMark,
-    description: "This place allows other types of animals",
   },
 ];
 
@@ -33,8 +43,8 @@ const CategoryBar = () => {
   }
 
   return (
-    <div className="fixed top-32 h-full w-40 bg-amber-200">
-      <div className="pt-4 flex flex-col items-center justify-center space-y-4 my-4">
+    <div className="fixed top-40 md:top-28 w-full h-40 lg:h-full lg:w-40 bg-amber-200">
+      <div className="pt-12 flex flex-row lg:flex-col items-center justify-center space-x-4 lg:space-x-0 lg:space-y-4 lg:my-4 overflow-x-hidden lg:overflow-visible">
         {categories.map((item) => {
           return (
             <CategoryItem
