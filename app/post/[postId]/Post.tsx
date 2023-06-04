@@ -91,7 +91,7 @@ const Post: React.FC<PostProps> = ({
 
   return (
     <div className="mx-auto mb-10">
-      <div className="flex flex-col md:flex-row gap-16">
+      <div className="flex flex-col md:flex-row gap-16 justify-center">
         <PostFront
           title={post.title}
           imageSrc={post.imageSrc}

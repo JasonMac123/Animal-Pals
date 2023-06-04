@@ -10,6 +10,10 @@ Animal-Pals is built with the next.js app version to have both server side and c
 
 ## ScreenShots
 
+![Home Page](https://imgur.com/rsa63Vy.png "HomePage")
+![Creating a Post](https://imgur.com/kNWMVEZ.png "Creating a Post")
+![Individual Post](https://imgur.com/z0VkxCW.png "Individual Post")
+
 # Getting Started
 
 ### Dependencies
