@@ -8,6 +8,8 @@ interface HomeProps {
   searchParams: postParams;
 }
 
+export const dynamic = "force-dynamic";
+
 const Home = async ({ searchParams }: HomeProps) => {
   const posts = await getPosts(searchParams);
 
