@@ -46,7 +46,6 @@ const Reservations: React.FC<ReservationsProps> = ({
               actionId={reservation.id}
               onAction={cancelReservation}
               actionLabel="Cancel Booking"
-              currentUser={currentUser}
             />
           );
         })}

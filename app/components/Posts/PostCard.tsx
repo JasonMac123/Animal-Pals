@@ -1,7 +1,6 @@
 "use client";
 
-import { Post, Reservation } from "@prisma/client";
-import { safePost, safeUser } from "../../types/types";
+import { safePost, typeSafeReservations } from "../../types/types";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
@@ -11,7 +10,7 @@ import Button from "../Button";
 
 interface PostCardProps {
   data: safePost;
-  reservation?: Reservation;
+  reservation?: typeSafeReservations;
   onAction?: (id: string) => void;
   actionLabel?: string;
   actionId?: string;
